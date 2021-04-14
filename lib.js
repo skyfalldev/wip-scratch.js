@@ -1,12 +1,12 @@
 const phin = require("phin");
-const assert = require("assert").strict;
+const equals = require("assert").strictEqual
 const path = require("path")
 
 class Scratcher {
   constructor(username, password) {
     // here we check to see if the parameters have both been set
-    assert.strictEqual(typeof(username), 'string', new TypeError('Expected username to be a string'));
-    assert.strictEqual(typeof(password), 'string', new TypeError('Expected password to be a string'));
+    equals(typeof(username), 'string', new TypeError('Expected username to be a string'));
+    equals(typeof(password), 'string', new TypeError('Expected password to be a string'));
   }
   getProject(id) {
     // TODO: Create a project class
@@ -19,7 +19,7 @@ class Scratcher {
   }
   setPFP(pfp) {
     const pfpType = typeof pfp
-    assert.strictEqual(pfpType, "string"||"object", new TypeError("Expected PFP to be a path or Buffer!")
+    equals(pfpType, "string"||"object", new TypeError("Expected PFP to be a path or Buffer!")
     // TODO: Set the PFP
   }
 }
