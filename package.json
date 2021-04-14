@@ -1,0 +1,14 @@
+{
+  "name":"scratch.js",
+  "description":"An API wrapper for Scratch 3.",
+  "version":"0.0.1",
+  "license":"MIT",
+  "dependencies":{
+    "phin":"^3.5.1"
+  },
+  "author":{
+    "name":"mahad200907"
+  },
+  "scripts":{
+    "start":"node lib.js"
+  }
