@@ -10,8 +10,9 @@ class User {
         "method":"GET",
         "url":"https://api.scratch.mit.edu/users/mahad200907"
       })
-      } catch {
-      }
+     } catch {
+       throw new Error("Could not get user!")
+     }
 
 class Scratcher {
   constructor(username, password) {
