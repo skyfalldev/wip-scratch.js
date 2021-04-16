@@ -8,8 +8,16 @@ class User {
     try {
       const res = await phin({
         "method":"GET",
-        "url":"https://api.scratch.mit.edu/users/mahad200907"
+        "url":"https://api.scratch.mit.edu/users/" + username
       })
+      
+      if (res.statusCode == 200) {
+        for (const prop in res.body) {
+          this[prop] = res.body[prop]
+        }
+      } else {
+        throw new Error("panic")
+      }
      } catch {
        throw new Error("Could not get user!")
      }
