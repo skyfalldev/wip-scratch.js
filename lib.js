@@ -5,7 +5,13 @@ const path = require("path")
 class User {
   async constructor(username) {
     equals(typeof(username), "string", new TypeError("Expected username to be a string"))
-    const res = await phin(
+    try {
+      const res = await phin({
+        "method":"GET",
+        "url":"https://api.scratch.mit.edu/users/mahad200907"
+      })
+      } catch {
+      }
 
 class Scratcher {
   constructor(username, password) {
