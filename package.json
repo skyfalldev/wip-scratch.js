@@ -16,3 +16,4 @@
     "start":"node lib.js",
     "tests":"jest"
   }
+}
