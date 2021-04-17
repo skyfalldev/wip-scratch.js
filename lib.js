@@ -3,7 +3,7 @@ const equals = require("assert").strictEqual;
 const path = require("path");
 
 class User {
-  async constructor(username,session) {
+  constructor(username,session) {
     equals(
       typeof username,
       "string",
