@@ -14,6 +14,6 @@
   },
   "scripts":{
     "start":"node lib.js",
-    "tests":"jest"
+    "test":"jest"
   }
 }
