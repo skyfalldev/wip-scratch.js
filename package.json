@@ -13,5 +13,6 @@
     "name":"mahad200907"
   },
   "scripts":{
-    "start":"node lib.js"
+    "start":"node lib.js",
+    "tests":"jest"
   }
