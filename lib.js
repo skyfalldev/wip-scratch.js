@@ -1,30 +1,33 @@
-const phin = require("phin");
+const phin = require("phin").unpromisified;
 const equals = require("assert").strictEqual;
 const path = require("path");
 
 class User {
-  constructor(username,session) {
+  constructor(username, session) {
     equals(
       typeof username,
       "string",
       new TypeError("Expected username to be a string")
     );
-    try {
-      const res = await phin({
+    const res = phin(
+      {
         method: "GET",
         url: "https://api.scratch.mit.edu/users/" + username,
-      });
-
-      if (res.statusCode == 200) {
-        for (const prop in res.body) {
-          this[prop] = res.body[prop];
+      },
+      (err, res) => {
+        if (err) {
+          throw new Error("Could not get user!");
         }
-      } else {
-        throw new Error("panic");
+
+        if (res.statusCode == 200) {
+          for (const prop in res.body) {
+            this[prop] = res.body[prop];
+          }
+        } else {
+          throw new Error("Could not get user!");
+        }
       }
-    } catch {
-      throw new Error("Could not get user!");
-    }
+    );
   }
 }
 class Scratcher {
